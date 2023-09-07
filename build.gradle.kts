@@ -70,4 +70,10 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
 
     implementation("com.google.cloud.sql:postgres-socket-factory:1.13.1")
+
+
+    implementation("com.google.cloud:google-cloud-storage:2.26.1")
+
+    // iText pdf library
+    implementation("com.itextpdf:itext7-core:8.0.1")
 }
