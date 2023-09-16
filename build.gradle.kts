@@ -5,6 +5,7 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 val postgres_version: String by project
+val mysql_version: String by project
 val h2_version: String by project
 val exposed_version: String by project
 plugins {
@@ -59,6 +60,9 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
+    implementation("io.ktor:ktor-server-partial-content:$ktor_version")
+    implementation("io.ktor:ktor-server-auto-head-response:$ktor_version")
+
     // postgres
     implementation("org.postgresql:postgresql:$postgres_version")
 
@@ -69,11 +73,19 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
 
-    implementation("com.google.cloud.sql:postgres-socket-factory:1.13.1")
+    // for gcloud postgres
+    //implementation("com.google.cloud.sql:postgres-socket-factory:1.13.1")
+
+    //mysql
+    implementation("mysql:mysql-connector-java:$mysql_version")
+
+    // for gcloud mysql
+    implementation("com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.13.1")
 
 
     implementation("com.google.cloud:google-cloud-storage:2.26.1")
 
     // iText pdf library
     implementation("com.itextpdf:itext7-core:8.0.1")
+
 }
